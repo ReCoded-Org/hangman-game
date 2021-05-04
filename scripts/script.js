@@ -40,7 +40,6 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
 ).then(json => {
 
     const word = json[0];
-    console.log(word);
     for (let i = 0; i < word.length; i++) {
         blanks.innerHTML += "_ ";
     }
@@ -49,15 +48,15 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
     let falseCount = 0;
     let loser = false;
     const checkLetter = (e) => {
+
         const clicked = e.target.innerHTML;
         if (e.target.nodeName === "BUTTON") {
+
             let rightLetter = false;
             if (loser == false) {
-
                 if (word.includes(clicked)) {
 
                     rightLetter = true;
-
                     for (let i = 0; i < word.length * 2; i += 2) {
                         if (word[i / 2] == clicked) {
                             blanks.innerHTML = blanks.innerHTML.replaceAt(i, clicked);
@@ -75,6 +74,7 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
                 }
                 counters.innerHTML = "False: " + falseCount + " || Found Letters: " + rightCount;
             }
+
             if (falseCount == 10) {
                 gameover.style.display = "block";
                 answer.innerHTML += '"' + word + '"';
@@ -109,8 +109,8 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
     let helpCount = 0;
     const helper = () => {
         if (falseCount < 10) {
-            helpCount++;
 
+            helpCount++;
             let clicked = word[randomInteger(0, word.length - 1)];
             while (blanks.innerHTML.includes(clicked)) {
                 clicked = word[randomInteger(0, word.length - 1)];
@@ -120,7 +120,6 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
             if (loser == false) {
 
                 rightLetter = true;
-
                 for (let i = 0; i < word.length * 2; i += 2) {
                     if (word[i / 2] == clicked) {
                         blanks.innerHTML = blanks.innerHTML.replaceAt(i, clicked);
@@ -132,7 +131,9 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
             falseCount++;
             hang.setAttribute("src", `./images/${falseCount}.png`);
             counters.innerHTML = "Mistakes: " + falseCount + " || Found Letters: " + rightCount;
+
             if (falseCount < 10) buttonDisable.setAttribute("disabled", "true");
+
             if (falseCount == 10) {
                 gameover.style.display = "block";
                 answer.innerHTML += '"' + word + '"';
