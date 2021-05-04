@@ -60,16 +60,19 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
                 }
             }
 
-            if (rightLetter == false) {
-                falseCount++;
-                hang.setAttribute("src", `../images/${falseCount}.png`);
+            if (falseCount < 10) {
+                if (rightLetter == false) {
+                    falseCount++;
+                    hang.setAttribute("src", `../images/${falseCount}.png`);
+                }
+                counters.innerHTML = "False: " + falseCount + " || Found Letters: " + rightCount;
             }
-            counters.innerHTML = "False: " + falseCount + " || Found Letters: " + rightCount;
             if (falseCount == 10) {
                 gameover.style.display = "block";
                 answer.innerHTML += '"' + word + '"';
                 answer.style.display = "block";
                 loser = true;
+                falseCount++;
             }
 
             if (loser == false) {
@@ -95,49 +98,51 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
 
     let helpCount = 0;
     const helper = () => {
-        helpCount++;
+        if (falseCount < 10) {
+            helpCount++;
 
-        let clicked = word[randomInteger(0, word.length - 1)];
-        console.log(clicked);
-        while (blanks.innerHTML.includes(clicked)) {
-            clicked = word[randomInteger(0, word.length - 1)];
+            let clicked = word[randomInteger(0, word.length - 1)];
             console.log(clicked);
-        }
+            while (blanks.innerHTML.includes(clicked)) {
+                clicked = word[randomInteger(0, word.length - 1)];
+                console.log(clicked);
+            }
 
-        if (loser == false) {
+            if (loser == false) {
 
-            rightLetter = true;
+                rightLetter = true;
 
-            for (let i = 0; i < word.length * 2; i += 2) {
-                if (word[i / 2] == clicked) {
-                    blanks.innerHTML = blanks.innerHTML.replaceAt(i, clicked);
-                    rightCount++;
+                for (let i = 0; i < word.length * 2; i += 2) {
+                    if (word[i / 2] == clicked) {
+                        blanks.innerHTML = blanks.innerHTML.replaceAt(i, clicked);
+                        rightCount++;
+                    }
                 }
             }
-        }
 
-        falseCount++;
-        hang.setAttribute("src", `../images/${falseCount}.png`);
-        counters.innerHTML = "Mistakes: " + falseCount + " || Found Letters: " + rightCount;
-        if (falseCount == 10) {
-            gameover.style.display = "block";
-            answer.innerHTML += '"' + word + '"';
-            answer.style.display = "block";
-            loser = true;
-        }
-
-        if (loser == false) {
-            if (rightCount == word.length) {
-                gameover.innerHTML = "Congratulations 🎉!";
-                gameover.style.color = "green"
+            falseCount++;
+            hang.setAttribute("src", `../images/${falseCount}.png`);
+            counters.innerHTML = "Mistakes: " + falseCount + " || Found Letters: " + rightCount;
+            if (falseCount == 10) {
                 gameover.style.display = "block";
                 answer.innerHTML += '"' + word + '"';
                 answer.style.display = "block";
+                loser = true;
             }
-        }
 
-        if (helpCount == 2) {
-            help.style.display = "none";
+            if (loser == false) {
+                if (rightCount == word.length) {
+                    gameover.innerHTML = "Congratulations 🎉!";
+                    gameover.style.color = "green"
+                    gameover.style.display = "block";
+                    answer.innerHTML += '"' + word + '"';
+                    answer.style.display = "block";
+                }
+            }
+
+            if (helpCount == 2) {
+                help.style.display = "none";
+            }
         }
     }
     help.addEventListener("click", helper);
