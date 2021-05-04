@@ -1,0 +1,67 @@
+body {
+    text-align: center;
+}
+
+button {
+    display: inline-block;
+}
+
+#letters {
+    margin: 20px 0px;
+}
+
+#blanks {
+    font-size: xx-large;
+    margin: 50px 0px;
+}
+
+.alphaButton {
+    font-size: larger;
+}
+
+#hangman {
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    border: 2px dotted black;
+}
+
+#hang {
+    width: 100%;
+}
+
+#gameover {
+    display: none;
+    color: red;
+    font-size: x-large;
+}
+
+#answer {
+    display: none;
+    color: green;
+    font-size: x-large;
+}
+
+#counters {
+    margin: 10px;
+    font-size: large;
+}
+
+#replay,
+#help {
+    width: 150px;
+    height: 80px;
+    margin: 10px;
+    font-size: larger;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#help:hover {
+    background-color: red;
+    color: white;
+}
