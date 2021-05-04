@@ -25,6 +25,7 @@ button {
     height: 400px;
     margin: 20px auto;
     border: 2px dotted black;
+    background-color: inherit;
 }
 
 #hang {

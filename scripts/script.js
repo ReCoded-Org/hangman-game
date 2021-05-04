@@ -121,7 +121,7 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
             }
 
             falseCount++;
-            hang.setAttribute("src", `../images/${falseCount}.png`);
+            hang.setAttribute("src", `./images/${falseCount}.png`);
             counters.innerHTML = "Mistakes: " + falseCount + " || Found Letters: " + rightCount;
             if (falseCount == 10) {
                 gameover.style.display = "block";
