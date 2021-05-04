@@ -15,7 +15,7 @@ const hang = document.getElementById("hang");
 const replay = document.getElementById("replay");
 const help = document.getElementById("help");
 
-alphabet.forEach(letter => {
+alphabet.forEach((letter, i) => {
 
     const newButton = document.createElement("button");
     newButton.innerHTML = letter;
@@ -25,6 +25,13 @@ alphabet.forEach(letter => {
     newButton.style.width = "40px";
     newButton.style.height = "40px";
     letters.append(newButton);
+
+    if (i == 12) {
+        const breaking = document.createElement("br");
+        const breaking2 = document.createElement("br");
+        letters.append(breaking);
+        letters.append(breaking2);
+    }
 
 });
 
@@ -43,7 +50,7 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
     let loser = false;
     const checkLetter = (e) => {
         const clicked = e.target.innerHTML;
-        if (!blanks.innerHTML.includes(clicked)) {
+        if (e.target.nodeName === "BUTTON") {
             let rightLetter = false;
             if (loser == false) {
 
@@ -61,6 +68,7 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
             }
 
             if (falseCount < 10) {
+                e.target.setAttribute("disabled", "true");
                 if (rightLetter == false) {
                     falseCount++;
                     hang.setAttribute("src", `../images/${falseCount}.png`);
@@ -78,10 +86,12 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
             if (loser == false) {
                 if (rightCount == word.length) {
                     gameover.innerHTML = "Congratulations 🎉!";
-                    gameover.style.color = "lightgreen"
+                    gameover.style.color = "green"
                     gameover.style.display = "block";
                     answer.innerHTML += '"' + word + '"';
                     answer.style.display = "block";
+                    falseCount = 11;
+                    loser = true;
                 }
             }
         }
@@ -102,11 +112,10 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
             helpCount++;
 
             let clicked = word[randomInteger(0, word.length - 1)];
-            console.log(clicked);
             while (blanks.innerHTML.includes(clicked)) {
                 clicked = word[randomInteger(0, word.length - 1)];
-                console.log(clicked);
             }
+            const buttonDisable = document.getElementById(clicked);
 
             if (loser == false) {
 
@@ -123,20 +132,24 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
             falseCount++;
             hang.setAttribute("src", `./images/${falseCount}.png`);
             counters.innerHTML = "Mistakes: " + falseCount + " || Found Letters: " + rightCount;
+            if (falseCount < 10) buttonDisable.setAttribute("disabled", "true");
             if (falseCount == 10) {
                 gameover.style.display = "block";
                 answer.innerHTML += '"' + word + '"';
                 answer.style.display = "block";
                 loser = true;
+                falseCount++;
             }
 
             if (loser == false) {
                 if (rightCount == word.length) {
                     gameover.innerHTML = "Congratulations 🎉!";
-                    gameover.style.color = "green"
+                    gameover.style.color = "green";
                     gameover.style.display = "block";
                     answer.innerHTML += '"' + word + '"';
                     answer.style.display = "block";
+                    falseCount = 11;
+                    loser = true;
                 }
             }
 

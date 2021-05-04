@@ -8,12 +8,12 @@ button {
 }
 
 #letters {
-    margin: 20px 0px;
+    margin: 20px 0px 0px 0px;
 }
 
 #blanks {
     font-size: xx-large;
-    margin: 50px 0px;
+    margin: 18px 0px;
 }
 
 .alphaButton {
