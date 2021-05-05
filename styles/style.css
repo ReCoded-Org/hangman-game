@@ -1,0 +1,78 @@
+*
+{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    background-color: yellowgreen;
+    color: white;
+}
+#letters
+{
+    width: 850px;
+    text-align: left;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+#letters > button
+{
+    color: yellowgreen;
+    border: 0px;
+    border-radius: 2px;
+    background-color:white;
+    margin: 2px;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+}
+#letters > button:hover
+{
+    background:yellowgreen;
+    border: 1px solid white;
+    color:white;
+}
+.hint-and-play
+{
+    border: 1px solid white;
+    font-size: 20px;
+    margin: 2px;
+    padding: 5px;
+    height: 40px;
+    width: 150px;
+    border-radius: 3px;
+}
+.hint-and-play:hover
+{
+    border: 1px solid white;
+    background-color: white;
+    color: yellowgreen;
+}
+#hanged-man-picture
+{
+    border: 2px dashed white;
+    height: 250px;
+    width: 250px;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+
+/* styling place for the word we should guess  */
+#letters-to-guess
+{ 
+overflow-x:hidden;
+white-space:nowrap; 
+height: 1em;
+width: 100%;
+color: white;
+} 
+
+#my-word
+{ 
+display:inline; 
+color: white;
+} 

@@ -8,8 +8,8 @@ Example of what we want to accomplish [here](https://codepen.io/cathydutton/pen/
 ### Requirements
 
 1. HTML:
-    1. Add buttons that correspond to each letter from a to z.
-    2. Add a section that will hold the blanks that are going to be equal to the number of characters for the current word.
+    1. Add buttons that correspond to each letter from a to z. done
+    2. Add a section that will hold the blanks that are going to be equal to the number of characters for the current word. done 
     3. Add a div to show the man who's going to be hanged if you lose.
     4. Add a counter from 10 that will decrease by 1 with every wrong guess.
     4. Add a button to play again.
