@@ -76,7 +76,7 @@ fetch("https://random-word-api.herokuapp.com/word?number=1")
                     e.target.setAttribute("disabled", "true");
                     if (rightLetter == false) {
                         falseCount++;
-                        hang.setAttribute("src", `../images/${falseCount}.png`);
+                        hang.setAttribute("src", `./images/${falseCount}.png`);
                     }
                     counters.innerHTML =
                         "False: " + falseCount + " || Found Letters: " + rightCount;
