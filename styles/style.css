@@ -18,18 +18,8 @@ h3 {
     font-weight: normal;
 }
 
-button {
-    display: inline-block;
-}
-
 #letters {
     margin: 20px 0px;
-}
-
-#blanks {
-    font-size: xx-large;
-    margin: 30px 0px;
-    color: white;
 }
 
 .alphaButton {
@@ -59,16 +49,10 @@ button {
     opacity: 0.5;
 }
 
-#hangman {
-    width: 400px;
-    height: 400px;
-    margin: 20px auto;
-    border: 2px dashed white;
-    background-color: inherit;
-}
-
-#hang {
-    width: 100%;
+#blanks {
+    font-size: xx-large;
+    margin: 30px 0px;
+    color: white;
 }
 
 #gameover {
@@ -89,8 +73,27 @@ button {
     color: white;
 }
 
+#hangman {
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    border: 2px dashed white;
+    background-color: inherit;
+}
+
+#hang {
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #replay,
 #help {
+    display: inline-block;
     width: 150px;
     height: 80px;
     margin: 10px;
@@ -99,12 +102,6 @@ button {
     border: 1px solid white;
     border-radius: 10px;
     color: white;
-}
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #replay:hover {
