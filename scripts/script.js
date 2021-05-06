@@ -1,7 +1,6 @@
 window.onload = function start()
 {
   let word;
-
 async function fetchRndomWords()
 {
    let respose=await fetch("https://random-word-api.herokuapp.com/word?number=1");
@@ -9,7 +8,6 @@ async function fetchRndomWords()
    let data=await respose.json()
    word = data[0];
    console.log(word[0].length);
-
    guessTheWordLetters();
    // buttons for all letters
    const allLetters= ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
@@ -27,24 +25,16 @@ async function fetchRndomWords()
         guessArray[j]=button.innerHTML;
         console.log(guessArray);
       }
-      else{
-        guessArray[j]="_";
-      }
-    
+      // else{
+      //   guessArray[j]="_";
+      // }
   })
 }
 }
 }
 fetchRndomWords();
-
 let wordd = "fjjjjjjk'";
 console.log(wordd.length);
-
-
-
-
-
-
 //get elements:
 const catagory=document.getElementById("catagory");
 const lettersToGuessUL =document.getElementById("letters-to-guess");
@@ -55,12 +45,7 @@ const hint=document.getElementById("hint");
 const playAgain=document.getElementById("paly");
 const body = document.querySelector("body");
 //variables:
-
 let  guessArray=[];
-
-
-
-
 //place for the word we should guess 
 //not sure if it works 
 function guessTheWordLetters()
@@ -74,14 +59,10 @@ function guessTheWordLetters()
      else {
     correctWord.innerHTML = " _ ";
           }
-     
      lettersToGuessUL.appendChild(correctWord);
-     
      console.log(correctWord);
    }
    console.log(word);
    console.log(guessArray);
-    
 }
- 
 }
