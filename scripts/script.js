@@ -86,7 +86,7 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
             if (loser == false) {
                 if (rightCount == word.length) {
                     gameover.innerHTML = "Congratulations 🎉!";
-                    gameover.style.color = "green"
+                    gameover.style.color = "darkgreen"
                     gameover.style.display = "block";
                     answer.innerHTML += '"' + word + '"';
                     answer.style.display = "block";
@@ -145,7 +145,7 @@ fetch("https://random-word-api.herokuapp.com/word?number=1").then(
             if (loser == false) {
                 if (rightCount == word.length) {
                     gameover.innerHTML = "Congratulations 🎉!";
-                    gameover.style.color = "green";
+                    gameover.style.color = "darkgreen";
                     gameover.style.display = "block";
                     answer.innerHTML += '"' + word + '"';
                     answer.style.display = "block";
