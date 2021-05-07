@@ -1,25 +1,42 @@
-
 window.onload = function start()
 {
+  let word;
 
-// fetch random words
 async function fetchRndomWords()
 {
-   let respose=await fetch("https://random-word-api.herokuapp.com//all");
+   let respose=await fetch("https://random-word-api.herokuapp.com/word?number=1");
    console.log(respose);
    let data=await respose.json()
-   console.log(data);
-}
+   word = data[0];
+   console.log(word[0].length);
 
-// buttons for all letters
-const allLetters= ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-for(i = 0; i < 26; i++) 
-{
+   guessTheWordLetters();
+   const allLetters= ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+   for(i = 0; i < 26; i++) 
+  {
     const button = document.createElement("button");
     button.innerHTML = allLetters[i];
     const lettersDiv =  document.getElementById("letters");
     lettersDiv.appendChild(button); 
+    for(let j=0 ; j<word.length; j++){
+    button.addEventListener("click", function(){
+      if(button.innerHTML == word[j])
+      {
+        console.log(button.innerHTML+" "+ j);
+      }
+    
+  })
 }
+}
+}
+fetchRndomWords();
+
+let wordd = "fjjjjjjk'";
+console.log(wordd.length);
+
+// buttons for all letters
+
+
 
 
 //get elements:
@@ -30,9 +47,9 @@ const clue=document.getElementById("clue");
 //get buttons
 const hint=document.getElementById("hint");
 const playAgain=document.getElementById("paly");
-
+const body = document.querySelector("body");
 //variables:
-let word = ['n','o'];
+
 let  guessArray=[];
 
 
@@ -43,34 +60,23 @@ let  guessArray=[];
 function guessTheWordLetters()
 {
     for ( i = 0; i < word.length; i++) {
-      const correctWord = document.createElement('li');
+      let  correctWord = document.createElement('li');
       correctWord.setAttribute('id', 'my-word');
-      if (word[i] == "-") {
-        correctWord.innerHTML = "-";
+      if (word[i] == "") {
+        correctWord.innerHTML = " _ ";
       }
      else {
-    correctWord.innerHTML = "_";
+    correctWord.innerHTML = " _ ";
           }
-     guessArray.push(correctWord);
-     lettersToGuessUL .appendChild(correctWord);
+     
+     lettersToGuessUL.appendChild(correctWord);
+     
+     console.log(correctWord);
    }
    console.log(word);
-   console.log(correctWord);
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 }
 
 
