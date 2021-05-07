@@ -173,10 +173,6 @@ canvas {
   font-size: 60px;
 }
 
-.alphabet:disabled:hover {
-  cursor: default;
-}
-
 .alphabet:hover {
   cursor: pointer;
 }

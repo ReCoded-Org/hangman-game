@@ -72,11 +72,10 @@ const showHint = (word) => {
           letter.hidden = false;
           hintShown = true;
           hintsAvailable--;
-          const letters = document.getElementsByClassName("alphabet");
           hintsRemained(hintsAvailable);
-
+          const letters = document.getElementsByClassName("alphabet");
           for (let i = 0; i < letters.length; i++) {
-            if (letters[i].innerText === letter.value)
+            if (letters[i].innerText.toLowerCase() === letter.value)
               letters[i].setAttribute("disabled", true);
           }
         }
