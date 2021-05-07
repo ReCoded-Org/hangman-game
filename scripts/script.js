@@ -39,12 +39,16 @@ async function fetchRndomWords()
       {
         console.log(button.innerHTML+" "+ j);
         guessArray[j]=button.innerHTML;
-        // console.log(guessArray);
+        console.log(guessArray);
+        lettersToGuessUL.innerHTML = "";
+        for (let index = 0; index < guessArray.length; index++) {
+          const letter = guessArray[index];
+          lettersToGuessUL.append(letter);
+        }
       }
-      // else{
-      //   guessArray[j]="_";
-      // }
+     
   })
+
 }
 }
 }
