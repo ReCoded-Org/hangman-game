@@ -1,9 +1,6 @@
 body {
-  /* background:#c1d72e; */
   background-color: black;
   color: #fff;
-  /* height: 100%; */
-  font-family: "Roboto Mono", monospace;
   font-size: 25px;
   display: flex;
   flex-direction: column;
@@ -11,24 +8,146 @@ body {
   text-align: center;
   align-items: center;
   margin: 0;
-  text-shadow: 2px 2px 5px red;
 }
-.wrappper {
+main {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: black;
+  height: 655px;
   width: 100%;
-  margin: 0 auto;
+}
+.hangman {
+  margin: 0;
+  font-size: 30px;
+  color: black;
+  letter-spacing: 10px;
+  text-shadow: 1px 1px 3px black;
+}
+#hangman-top {
+  width: 100%;
+  background-color: red;
+}
+#hangman-bottom {
+  width: 100%;
+  background-color: red;
+}
+#hangman-left {
+  display: flex;
+  flex-direction: column;
+  width: 35px;
+  padding: 4px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  justify-content: center;
+  background-color: red;
+  text-align: center;
+}
+#hangman-right {
+  display: flex;
+  flex-direction: column;
+  width: 35px;
+  padding: 4px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  justify-content: center;
+  background-color: red;
+  text-align: center;
+}
+#first-container {
+  text-align: center;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 10px red;
+}
+#start-btn {
+  background-color: red;
+  color: #fff;
+  border: 2px solid #fff;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 13px 8px;
+  width: 180px;
+  margin-top: 15px;
+  border-radius: 15px;
+  text-align: center;
+}
+#start-btn:hover {
+  background: #fff;
+  color: red;
+  border: 2px solid white;
+}
+#second-container {
+  display: none;
+  font-family: "Roboto Mono", monospace;
+}
+
+.wrappper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  margin: 40px;
 }
 
 canvas {
   color: #fff;
   border: #fff dotted 3px;
-  border-top: none;
-  border-right: none;
   padding: 15px;
+  margin-right: 250px;
+  width: 400px;
+  height: 250px;
+  margin-top: 18px;
+}
+
+#hold {
+  font-size: 10px;
+}
+#buttons {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  margin-left: 250px;
+  text-transform: uppercase;
+}
+.alphabet {
+  background-color: black;
+  color: #fff;
+  margin: 5px;
+  cursor: pointer;
+  text-align: center;
+  border: 3px solid gray;
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-size: 20px;
+  width: 60px;
+  height: 60px;
+  padding: 2px;
+  text-align: center;
+}
+.alphabet:hover {
+  cursor: pointer;
+  color: white;
+  border: 3px solid white;
+  background-color: #222;
+}
+.alphabet:disabled {
+  opacity: 0.5;
+}
+.alphabet:disabled:hover {
+  cursor: default;
 }
 
 #hint,
 #reset {
-  /* background:#c1d72e; */
   background-color: red;
   color: #fff;
   border: 1px solid #fff;
@@ -38,32 +157,20 @@ canvas {
   width: 180px;
   margin: 35px 15px 0px;
   border-radius: 15px;
-  box-shadow: 2px 2px 10px white;
+  box-shadow: 2px 2px 7px white;
   text-decoration: none;
+  text-align: center;
 }
 
 #hint:hover,
 #reset:hover {
   background: #fff;
-  /* color:#c1d72e; */
   color: red;
   box-shadow: none;
-}
-#hint:disabled {
-  opacity: 0.5;
 }
 
 .hiddenLetter {
   font-size: 60px;
-}
-
-#hold {
-  margin-top: 60px;
-  margin-bottom: 50px;
-}
-
-.alphabet:disabled {
-  opacity: 0.5;
 }
 
 .alphabet:disabled:hover {

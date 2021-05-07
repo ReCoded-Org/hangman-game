@@ -7,6 +7,7 @@ const stickman = document.getElementById("stickman");
 const context = stickman.getContext("2d");
 const hint = document.getElementById("hint");
 const remainedHint = document.getElementById("hints");
+
 let lives = 10;
 let gameFinished = false;
 let hintsAvailable = 3;
@@ -16,6 +17,7 @@ context.strokeStyle = "#fff";
 context.lineWidth = 2;
 
 const draw = (fromX, fromY, toX, toY) => {
+  context.beginPath();
   context.moveTo(fromX, fromY);
   context.lineTo(toX, toY);
   context.stroke();
@@ -54,7 +56,7 @@ const hintsRemained = (hintsAvailable) => {
 };
 
 const showHint = (word) => {
-  if (hintsAvailable > 0) {
+  if (hintsAvailable > 0 && !gameFinished) {
     let hintShown = false;
 
     while (!hintShown) {
@@ -137,6 +139,7 @@ const alphabetHandler = (alphabet, word, alphabetButton, randomWord) => {
 
     if (!randomWord.split("").includes(alphabet)) {
       lives--;
+
       drawing[drawing.length - 1 - lives]();
     }
 
@@ -175,6 +178,7 @@ const reset = () => {
   lives = 10;
   gameState(lives);
   gameFinished = false;
+  context.clearRect(0, 0, 400, 400);
 };
 
 const play = () => {
@@ -194,3 +198,18 @@ const play = () => {
 play();
 
 playAgain.onclick = () => play();
+
+const firstPage = document.getElementById("first-container");
+const secondPage = document.getElementById("second-container");
+const startBtn = document.getElementById("start-btn");
+const hangmanLeft = document.getElementById("hangman-left");
+const hangmanRight = document.getElementById("hangman-right");
+const hangmanBottom = document.getElementById("hangman-bottom");
+
+startBtn.addEventListener("click", () => {
+  firstPage.style.display = "none";
+  secondPage.style.display = "block";
+  hangmanLeft.style.display = "none";
+  hangmanRight.style.display = "none";
+  hangmanBottom.style.display = "none";
+});
