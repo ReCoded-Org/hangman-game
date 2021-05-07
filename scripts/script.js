@@ -24,6 +24,7 @@ const draw = (fromX, fromY, toX, toY) => {
 };
 
 const head = () => {
+  context.beginPath();
   context.arc(85, 40, 10, 0, Math.PI * 2, true);
   context.stroke();
 };
@@ -52,7 +53,10 @@ const drawing = [
 ];
 
 const hintsRemained = (hintsAvailable) => {
-  remainedHint.innerText = `${hintsAvailable} hints remained`;
+  remainedHint.innerText =
+    hintsAvailable > 0
+      ? `${hintsAvailable} hints remained`
+      : `No hints remaining`;
 };
 
 const showHint = (word) => {
@@ -179,6 +183,7 @@ const reset = () => {
   gameState(lives);
   gameFinished = false;
   context.clearRect(0, 0, 400, 400);
+  hint.removeAttribute("disabled");
 };
 
 const play = () => {
@@ -187,8 +192,8 @@ const play = () => {
     .then((randomWord) => {
       buttons.innerHTML = "";
       renderAlphabets(createWord(randomWord[0]), randomWord[0]);
-      reset();
       hintsAvailable = Math.floor(randomWord[0].length / 3);
+      reset();
       hintsRemained(hintsAvailable);
     })
 
