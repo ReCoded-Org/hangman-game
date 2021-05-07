@@ -4,6 +4,7 @@ const lettersToGuessUL =document.getElementById("letters-to-guess");
 const gameOverrOrLiveNumburs =document.getElementById("game-overr-or-live-numburs");
 const clue=document.getElementById("clue");
 const body = document.querySelector("body");
+let hangMan=document.getElementById("hanged-man-picture");
 
 //variables:
 let  guessArray=[];
@@ -76,3 +77,8 @@ document.getElementById("play").addEventListener("click",function reloadThePage(
 {
   location.reload();
 });
+
+
+
+//hangman
+
