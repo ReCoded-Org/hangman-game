@@ -1,0 +1,117 @@
+body {
+    text-align: center;
+    background-color: #C1D72D;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+        "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+h1,
+h2 {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+h3 {
+    color: white;
+    font-weight: normal;
+}
+
+#letters {
+    margin: 20px 0px;
+}
+
+.alphaButton {
+    font-size: larger;
+    border-radius: 8px;
+    background-color: white;
+    color: #C1D72D;
+    border: 1px solid #C1D72D;
+}
+
+.alphaButton:hover {
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: #C1D72D;
+    color: white;
+}
+
+.alphaButton:disabled {
+    opacity: 0.5;
+    cursor: default;
+    background-color: white;
+    color: #C1D72D;
+    border: 1px solid #C1D72D;
+}
+
+.alphaButton:disabled:hover {
+    opacity: 0.5;
+}
+
+#blanks {
+    font-size: xx-large;
+    margin-top: 30px;
+    color: white;
+}
+
+#gameover {
+    margin-top: 10px;
+    display: none;
+    color: red;
+    font-size: x-large;
+}
+
+#answer {
+    display: none;
+    color: darkgreen;
+    font-size: x-large;
+}
+
+#counters {
+    margin: 10px;
+    font-size: large;
+    color: white;
+}
+
+#hangman {
+    width: 350px;
+    height: 350px;
+    margin: 20px auto;
+    border: 2px dashed white;
+    background-color: inherit;
+}
+
+#hang {
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#replay,
+#help {
+    display: inline-block;
+    width: 150px;
+    height: 80px;
+    margin: 10px;
+    font-size: larger;
+    background-color: #C1D72D;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+}
+
+#replay:hover {
+    background-color: white;
+    color: #C1D72D;
+}
+
+#help:hover {
+    background-color: #F4623A;
+    color: #C1D72D;
+    border: #C1D72D;
+}

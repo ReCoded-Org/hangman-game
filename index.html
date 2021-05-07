@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/style.css" />
 </head>
+
 <body>
-  
+  <h1 class="header">HANGMAN</h1>
+
+  <h2 class="header">VANILLA JAVASCRIPT HANGMAN GAME</h2>
+
+  <h3 class="header">
+    ! You can use 2 helps but each will count as a Mistake and cost you An Attempt !
+    <br />Use the alphabet below to guess the word in less than 10 attempts:</h3>
+
+  <div id="letters"></div>
+
+  <div id="blanks"></div>
+
+  <div id="gameover">Game Over!</div>
+
+  <div id="answer">The Answer was:</div>
+
+  <div id="counters">Mistakes: 0 || Found Letters: 0</div>
+
+  <div id="hangman">
+    <img id="hang" src="" />
+  </div>
+
+  <div class="buttons">
+    <button id="help">Help<br />! -1 attempt !</button>
+    <button id="replay">Restart Game!</button>
+  </div>
 
   <script src="./scripts/script.js"></script>
 </body>
+
 </html>
