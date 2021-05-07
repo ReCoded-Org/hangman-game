@@ -1,6 +1,19 @@
+//get elements:
+const catagory=document.getElementById("catagory");
+const lettersToGuessUL =document.getElementById("letters-to-guess");
+const gameOverrOrLiveNumburs =document.getElementById("game-overr-or-live-numburs");
+const clue=document.getElementById("clue");
+const body = document.querySelector("body");
+
+//variables:
+let  guessArray=[];
+let word;
+
+
+
+
 window.onload = function start()
-{
-  let word;
+{ 
 async function fetchRndomWords()
 {
    let respose=await fetch("https://random-word-api.herokuapp.com/word?number=1");
@@ -9,7 +22,8 @@ async function fetchRndomWords()
    word = data[0];
    console.log(word[0].length);
    guessTheWordLetters();
-   // buttons for all letters
+
+// buttons for all letters
    const allLetters= ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
    for(i = 0; i < 26; i++) 
   {
@@ -19,11 +33,12 @@ async function fetchRndomWords()
     lettersDiv.appendChild(button); 
     for(let j=0 ; j<word.length; j++){
     button.addEventListener("click", function(){
+      button.style.opacity="50%";
       if(button.innerHTML == word[j])
       {
         console.log(button.innerHTML+" "+ j);
         guessArray[j]=button.innerHTML;
-        console.log(guessArray);
+        // console.log(guessArray);
       }
       // else{
       //   guessArray[j]="_";
@@ -33,28 +48,16 @@ async function fetchRndomWords()
 }
 }
 fetchRndomWords();
-let wordd = "fjjjjjjk'";
-console.log(wordd.length);
-//get elements:
-const catagory=document.getElementById("catagory");
-const lettersToGuessUL =document.getElementById("letters-to-guess");
-const gameOverrOrLiveNumburs =document.getElementById("game-overr-or-live-numburs");
-const clue=document.getElementById("clue");
-//get buttons
-const hint=document.getElementById("hint");
-const playAgain=document.getElementById("paly");
-const body = document.querySelector("body");
-//variables:
-let  guessArray=[];
+
 //place for the word we should guess 
-//not sure if it works 
 function guessTheWordLetters()
 {
     for ( i = 0; i < word.length; i++) {
       let  correctWord = document.createElement('li');
       correctWord.setAttribute('id', 'my-word');
-      if (word[i] =="") {
-        correctWord.innerHTML = "_";
+      if (word[i] == correctWord) {
+        correctWord.innerHTML = guessArray[i];
+        console.log(guessArray)
       }
      else {
     correctWord.innerHTML = " _ ";
@@ -63,6 +66,13 @@ function guessTheWordLetters()
      console.log(correctWord);
    }
    console.log(word);
-   console.log(guessArray);
+  //  console.log(guessArray);
 }
 }
+
+
+//relod the page to paly again
+document.getElementById("play").addEventListener("click",function reloadThePage()
+{
+  location.reload();
+});
