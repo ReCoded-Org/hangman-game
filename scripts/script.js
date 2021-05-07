@@ -5,8 +5,12 @@ const myLive = document.getElementById("mylives");
 const playAgain = document.getElementById("reset");
 const stickman = document.getElementById("stickman");
 const context = stickman.getContext("2d");
+const hint = document.getElementById("hint");
+const remainedHint = document.getElementById("hints");
 let lives = 10;
 let gameFinished = false;
+let hintsAvailable = 3;
+let guess = [];
 
 context.strokeStyle = "#fff";
 context.lineWidth = 2;
@@ -21,6 +25,7 @@ const head = () => {
   context.arc(85, 40, 10, 0, Math.PI * 2, true);
   context.stroke();
 };
+
 const floor = () => draw(10, 150, 300, 150);
 const post1 = () => draw(10, 0, 10, 150);
 const post2 = () => draw(0, 0, 100, 0);
@@ -43,6 +48,41 @@ const drawing = [
   leftLeg,
   rightLeg,
 ];
+
+const hintsRemained = (hintsAvailable) => {
+  remainedHint.innerText = `${hintsAvailable} hints remained`;
+};
+
+const showHint = (word) => {
+  if (hintsAvailable > 0) {
+    let hintShown = false;
+
+    while (!hintShown) {
+      let randomPosition = Math.abs(
+        word.length - 1 - Math.floor(Math.random() * (word.length + 1))
+      );
+      word.forEach((letter) => {
+        if (letter?.hidden && letter?.value === word[randomPosition]?.value) {
+          letter.hidden = false;
+          hintShown = true;
+          hintsAvailable--;
+          const letters = document.getElementsByClassName("alphabet");
+          hintsRemained(hintsAvailable);
+
+          for (let i = 0; i < letters.length; i++) {
+            if (letters[i].innerText === letter.value)
+              letters[i].setAttribute("disabled", true);
+          }
+        }
+      });
+    }
+  } else {
+    hint.setAttribute("disabled", true);
+  }
+
+  gameState(lives, word);
+  showLetters(word);
+};
 
 const gameState = (lives, word) => {
   const lost = () => {
@@ -74,6 +114,7 @@ buttons.innerHTML = "Loading...";
 const lettersFound = [];
 
 const showLetters = (word) => {
+  guess = word;
   hold.innerHTML = "";
 
   word.forEach((letter) => {
@@ -96,7 +137,6 @@ const alphabetHandler = (alphabet, word, alphabetButton, randomWord) => {
 
     if (!randomWord.split("").includes(alphabet)) {
       lives--;
-      console.log("lives", lives);
       drawing[drawing.length - 1 - lives]();
     }
 
@@ -116,6 +156,7 @@ const createWord = (randomWord) => {
 };
 
 const renderAlphabets = (word, randomWord) => {
+  buttons.innerHTML = "";
   alphabets.forEach((char, i) => {
     const alphabet = document.createElement("button");
     alphabet.innerText = char;
@@ -123,6 +164,7 @@ const renderAlphabets = (word, randomWord) => {
     alphabet.classList.add("alphabet");
 
     alphabet.onclick = () => alphabetHandler(char, word, alphabet, randomWord);
+    hint.onclick = () => showHint(word);
 
     buttons.append(alphabet);
   });
@@ -141,9 +183,11 @@ const play = () => {
     .then((randomWord) => {
       buttons.innerHTML = "";
       renderAlphabets(createWord(randomWord[0]), randomWord[0]);
-
       reset();
+      hintsAvailable = Math.floor(randomWord[0].length / 3);
+      hintsRemained(hintsAvailable);
     })
+
     .catch((e) => e);
 };
 
