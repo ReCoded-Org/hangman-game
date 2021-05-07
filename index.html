@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,300;1,300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./styles/style.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,300;1,300&display=swap"
-    rel="stylesheet">
-</head>
-
-<body>
-  <!-- // title // -->
-  <div class="wrapper">
-    <h1>HANGMAN</h1>
-    <h2>VANILLA JAVASCRIPT HANGMAN GAME</h2>
-    <p>Use the alphabet below to guess the word, or click hint to get a clue. </p>
-  </div>
-  // here's gonna be the the drawing part and fun parts :D //
-  <div class="wrapper">
-    <div id="buttons">
+  <body>
+    <!-- // title // -->
+    <div class="wrapper">
+      <h1 id="title">HANGMAN</h1>
+      <h2 id="gameTitle">VANILLA JAVASCRIPT HANGMAN GAME</h2>
+      <p id="gameDescription">
+        Use the alphabet below to guess the word, or click hint to get a clue.
+      </p>
     </div>
-    <p id="catagoryName"></p>
-    <div id="hold">
+    <!-- // here's gonna be the the drawing part and fun parts :D // -->
+    <div class="wrapper">
+      <div id="buttons"></div>
+      <!-- <p id="catagoryName"></p> -->
+      <div id="hold"></div>
+      <p id="mylives"></p>
+      <!-- <p id="clue">Clue -</p> -->
+      <!-- //drawing place // -->
+      <canvas id="stickman"
+        >This Text will show if the Browser does NOT support HTML5 Canvas
+        tag</canvas
+      >
+      <!-- // div of btns // -->
+      <div class="container">
+        <button id="hint">Hint</button>
+        <button id="reset">Play again</button>
+      </div>
     </div>
-    <p id="mylives"></p>
-    <p id="clue">Clue -</p>
-    //drawing place //
-    <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
-    // div of btns //
-    <div class="container">
-      <button id="hint">Hint</button>
-      <button id="reset">Play again</button>
-    </div>
-  </div>
 
-  <script src="./scripts/script.js"></script>
-</body>
-
+    <script src="./scripts/script.js"></script>
+  </body>
 </html>

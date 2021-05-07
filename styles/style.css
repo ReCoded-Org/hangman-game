@@ -2,8 +2,8 @@ body {
   /* background:#c1d72e; */
   background-color: black;
   color: #fff;
-  height:100%;
-  font-family: 'Roboto Mono', monospace;
+  /* height: 100%; */
+  font-family: "Roboto Mono", monospace;
   font-size: 25px;
   display: flex;
   flex-direction: column;
@@ -11,40 +11,62 @@ body {
   text-align: center;
   align-items: center;
   margin: 0;
-  text-shadow: 2px  2px 5px red;
+  text-shadow: 2px 2px 5px red;
 }
-.wrappper{
-  width:100%;
+.wrappper {
+  width: 100%;
   margin: 0 auto;
 }
 
-canvas{
-  color:#fff;
+canvas {
+  color: #fff;
   border: #fff dotted 3px;
   border-top: none;
   border-right: none;
-  padding:15px;
+  padding: 15px;
 }
 
-button{
+#hint,
+#reset {
   /* background:#c1d72e; */
   background-color: red;
-  color:#fff;
+  color: #fff;
   border: 1px solid #fff;
-  cursor:pointer;
+  cursor: pointer;
   font-size: 23px;
-  padding:13px 8px;
+  padding: 13px 8px;
   width: 180px;
   margin: 35px 15px 0px;
   border-radius: 15px;
-  box-shadow: 2px  2px 10px  white;
+  box-shadow: 2px 2px 10px white;
   text-decoration: none;
 }
 
-button:hover{
-    background:#fff;
-    /* color:#c1d72e; */
-    color: red;
-    box-shadow:none;
+#hint:hover,
+#reset:hover {
+  background: #fff;
+  /* color:#c1d72e; */
+  color: red;
+  box-shadow: none;
 }
 
+.hiddenLetter {
+  font-size: 60px;
+}
+
+#hold {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.alphabet:disabled {
+  opacity: 0.5;
+}
+
+.alphabet:disabled:hover {
+  cursor: default;
+}
+
+.alphabet:hover {
+  cursor: pointer;
+}
