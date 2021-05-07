@@ -4,6 +4,10 @@ const lettersToGuessUL =document.getElementById("letters-to-guess");
 const gameOverrOrLiveNumburs =document.getElementById("game-overr-or-live-numburs");
 const clue=document.getElementById("clue");
 const body = document.querySelector("body");
+<<<<<<< HEAD
+=======
+let hangMan=document.getElementById("hanged-man-picture");
+>>>>>>> 7fbbe4543d59349088ca100e88618856a5cf6ea8
 
 //variables:
 let  guessArray=[];
@@ -40,7 +44,9 @@ async function fetchRndomWords()
         guessArray[j]=button.innerHTML;
         // console.log(guessArray);
       }
-   
+      // else{
+      //   guessArray[j]="_";
+      // }
   })
 }
 }
@@ -65,7 +71,7 @@ function guessTheWordLetters()
      console.log(correctWord);
    }
    console.log(word);
-
+  //  console.log(guessArray);
 }
 }
 
@@ -75,3 +81,8 @@ document.getElementById("play").addEventListener("click",function reloadThePage(
 {
   location.reload();
 });
+
+
+
+//hangman
+

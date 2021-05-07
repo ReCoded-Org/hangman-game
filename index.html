@@ -12,36 +12,8 @@
   <h2>VANILLA JAVASCRIPT HANGMAN GAME</h2>
  <h2>Use the alphabet bellow to guess the word, or click hint to get the clue.</h2>
  <div id="letters">
-   <!-- hi girls -->
-   <!-- eman -->
-   <!-- snoor -->
- <!-- <button type="button" onclick="getLetter()">a</button>
- <button type="button">b</button>
- <button type="button">c</button>
- <button type="button">d</button>
- <button type="button">e</button>
- <button type="button">f</button>
- <button type="button">g</button>
- <button type="button">h</button>
- <button type="button">i</button>
- <button type="button">j</button>
- <button type="button">k</button>
- <button type="button">l</button>
- <button type="button">m</button>
- <button type="button">n</button>
- <button type="button">o</button>
- <button type="button">p</button>
- <button type="button">q</button>
- <button type="button">r</button>
- <button type="button">s</button>
- <button type="button">t</button>
- <button type="button">u</button>
- <button type="button">v</button>
- <button type="button">w</button>
- <button type="button">x</button>
- <button type="button">y</button>
- <button type="button">z</button> -->
 </div>
+
 <h2 id="catagory">   </h2>
   <ul id="letters-to-guess"> 
 
@@ -49,10 +21,28 @@
   
  <h2 id="game-overr-or-live-numburs">   </h2>
  <p id="clue">  </p>
- <div id="hanged-man-picture">   </div>
+ <div id="hanged-man-picture">  
+   <svg height="230" width="230" class="hangman-figure">
+<line x1="60" y1="20" x2="140" y2="20" stroke="white"/>
+<line x1="140" y1="20" x2="140" y2="50" stroke="white"/>
+<line x1="60" y1="20" x2="60" y2="230" stroke="white"/>
+<line x1="20" y1="230" x2="180" y2="230" stroke="white"/>
+<!-- head -->
+<circle cx="140" cy="60" r="15" stroke="white" fill="white"/>
+<!-- body -->
+<line x1="140" y1="70" x2="140" y2="130" stroke="white"/>
+<!-- arms -->
+<line x1="140" y1="110" x2="120" y2="90" stroke="white"/>
+<line x1="140" y1="110" x2="160" y2="90" stroke="white"/>
+<!-- legs -->
+<line x1="140" y1="130" x2="120" y2="160" stroke="white"/>
+<line x1="140" y1="130" x2="160" y2="160" stroke="white"/>
+
+   </svg>
+ </div>
 
  <button type="button"  class="hint-and-play" id="hint">Hint</button>
- <button type="reset" class="hint-and-play" id="play">Play again</button>
+ <button type="button" class="hint-and-play" id="play">Play again</button>
 </div>
   <script src="./scripts/script.js"></script>
 </body>
