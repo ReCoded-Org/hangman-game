@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./styles/style.css">
-</head>
-<body>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,300;1,300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <script src="./scripts/script.js"></script>
-</body>
+  <body>
+    <div id="hangman-top">
+      <p class="hangman">HANGMAN GAME</p>
+    </div>
+    <div id="hangman-left">
+      <p class="hangman">H A N G M A N</p>
+    </div>
+    <div id="hangman-right">
+      <p class="hangman">H A N G M A N</p>
+    </div>
+
+    <main>
+      <div id="first-container">
+        <!-- // title // -->
+        <h1>HANGMAN</h1>
+        <h2>VANILLA JAVASCRIPT HANGMAN GAME</h2>
+        <p id="gameDescription">
+          Use the alphabet to guess the word, or click hint to unlock alphabets.
+        </p>
+        <button id="start-btn">GET STARTED</button>
+      </div>
+      <div id="second-container">
+        <!-- // here's gonna be the the drawing part and fun parts :D // -->
+        <div class="wrapper">
+          <p id="mylives"></p>
+          <p id="hints"></p>
+          <div id="main-container">
+            <!-- // div of btns // -->
+            <div id="buttons"></div>
+            <!-- //drawing place // -->
+            <canvas id="stickman"
+              >Your Browser does NOT support HTML5 Canvas tag</canvas
+            >
+          </div>
+          <div id="hold"></div>
+          <div class="container">
+            <button id="hint">Hint</button>
+            <button id="reset">Play again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div id="hangman-bottom">
+      <p class="hangman">HANGMAN GAME</p>
+    </div>
+    <script src="./scripts/script.js"></script>
+  </body>
 </html>
