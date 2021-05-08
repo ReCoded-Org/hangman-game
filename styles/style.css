@@ -6,7 +6,7 @@
     color: white;
 }
 #letters
-{
+{ 
     width: 850px;
     text-align: left;
     margin: auto;
@@ -69,6 +69,7 @@ white-space:nowrap;
 height: auto;
 width: 100%;
 color: white;
+margin-left: -50px;
 } 
 
 #my-word
@@ -77,7 +78,7 @@ display:inline;
 color: white;
 } 
 
-.hangman-figure
+/* .hangman-figure
 {
     display: none;
-}
+} */
