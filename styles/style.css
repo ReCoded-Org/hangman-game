@@ -27,10 +27,16 @@ body {
   .questionFormVisible {
     display: flex;
   }
-  
+  p{
+      margin: 0px;
+  }
   .header{
     text-align: center;
     font-size: 24px ;
+    background-color: #000000;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
   .wrapper {
     margin: auto;
@@ -54,8 +60,11 @@ body {
   
   .gallows,
   .platform,
+  .rope,
+  .verticalScaffold,
   .horizontalScaffold {
     width: 100px;
+    margin-left: 12px;
   }
   
   .platform,
@@ -166,7 +175,7 @@ body {
     -webkit-transform: rotate(-20deg);
             transform: rotate(-20deg);
   }
-  #onePlayerGuessInput{
+  #GuessInput{
     font-size: 16px;
     padding: 8px 0px;
   }

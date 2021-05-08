@@ -7,16 +7,16 @@ hangman.userGuess = [];
 // Start game
 hangman.start = function () {
   const play = document.querySelector('.play');
-  const onePlayerGuessForm = document.getElementById('onePlayerGuessForm');
+  const GuessForm = document.getElementById('GuessForm');
   play.addEventListener('click', function () {
     this.classList.add('hidden');
-    onePlayerGuessForm.classList.add('active');
-    hangman.displayOnePlayerQuestion();
+    GuessForm.classList.add('active');
+    hangman.displayQuestion();
   })
 }
 
 // Display random category and number of letters for the word (one player game)
-hangman.displayOnePlayerQuestion = function () {
+hangman.displayQuestion = function () {
 
   const blanks = document.querySelector('.blank');
 
@@ -34,9 +34,9 @@ hangman.displayOnePlayerQuestion = function () {
       blanks.innerHTML = displayedLetter;
 
       // Check one player guesses
-      onePlayerGuessForm.addEventListener('submit', function (e) {
+      GuessForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        let guessValue = document.getElementById('onePlayerGuessInput').value;
+        let guessValue = document.getElementById('GuessInput').value;
         let correct = document.querySelectorAll('.correct');
         const wrong = document.querySelector('.wrong');
         let numberWrong = wrong.getElementsByTagName('P');
@@ -63,7 +63,6 @@ hangman.displayOnePlayerQuestion = function () {
           if (letters.includes(guessValue)) {
             if (correct[i].innerHTML === guessValue) {
               correct[i].classList.add('visible');
-              correct[i].setAttribute("aria-hidden", "false");
             }
           }
         }
@@ -74,27 +73,21 @@ hangman.displayOnePlayerQuestion = function () {
             wrong.innerHTML += `<p>${guessValue}</p>`;
             if (numberWrong.length === 1) {
               head.classList.remove('hidden')
-              body.setAttribute("aria-label", "one of six body parts visible")
             }
             if (numberWrong.length === 2) {
               torso.classList.remove('hidden')
-              body.setAttribute("aria-label", "two of six body parts visible")
             }
             if (numberWrong.length === 3) {
               leftArm.classList.remove('hidden')
-              body.setAttribute("aria-label", "three of six body parts visible")
             }
             if (numberWrong.length === 4) {
               rightArm.classList.remove('hidden')
-              body.setAttribute("aria-label", "four of six body parts visible")
             }
             if (numberWrong.length === 5) {
               leftLeg.classList.remove('hidden')
-              body.setAttribute("aria-label", "five of six body parts visible")
             }
             if (numberWrong.length === 6) {
               rightLeg.classList.remove('hidden')
-              body.setAttribute("aria-label", "all body parts visible, you have been hanged!")
             }
           }
         }
@@ -104,14 +97,14 @@ hangman.displayOnePlayerQuestion = function () {
           alert("you won")
            //show the play again button
           hangman.playAgain.classList.remove('hidden');
-          onePlayerGuessForm.classList.remove('active');
+          GuessForm.classList.remove('active');
         }
 
         // If player guesses 6 wrong letters (number of body parts), player loses
         if (numberWrong.length === 6) {
          alert("you lose!")
           hangman.playAgain.classList.remove('hidden');
-          onePlayerGuessForm.classList.remove('active');
+          GuessForm.classList.remove('active');
           // Show the correct word
           for (let i = 0; i < letters.length; i++) {
             correct[i].classList.add('visible')
@@ -119,7 +112,7 @@ hangman.displayOnePlayerQuestion = function () {
         }
 
         // Clear the form input after submit
-        onePlayerGuessForm.reset();
+        GuessForm.reset();
       })
     })
 }

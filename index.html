@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <title>Hangman</title>
   <!-- Load stylesheet -->
@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="header">
-      <p>Hangman</p>
+      <p>Hangman Game</p>
     </div>
   <main>
     <div class="wrapper">
@@ -29,15 +29,13 @@
         </div>
       </div>
 
-      
-
       <!-- Blanks -->
       <div class="blank" aria-label="if you guess a correct letter it will appear here"></div>
 
       <!-- input guesses -->
-      <form action="#" id="onePlayerGuessForm" class="guessForm" autocomplete="off">
-        <label class="sr-only" for="onePlayerGuessInput">Guess a letter</label>
-        <input id="onePlayerGuessInput" type="text" placeholder="Guess letter" maxlength="1" required>
+      <form  id="GuessForm" class="guessForm" >
+        <label class="sr-only" for="GuessInput">Guess a letter</label>
+        <input id="GuessInput" type="text" placeholder="Guess letter" maxlength="1" required>
         <button>guess</button>
       </form>
 
