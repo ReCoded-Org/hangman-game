@@ -26,31 +26,75 @@ async function fetchRndomWords()
 
 // buttons for all letters
    const allLetters= ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-   for(i = 0; i < 26; i++) 
-  {
-    const button = document.createElement("button");
-    button.innerHTML = allLetters[i];
+   
+   let counter = 0;
+   let numberOfLives = 10;
+   let numsToWin = 0;
+   allLetters.forEach(letter=>{
+     const button = document.createElement("button");
+    button.innerHTML = letter;
     const lettersDiv =  document.getElementById("letters");
     lettersDiv.appendChild(button); 
-    for(let j=0 ; j<word.length; j++){
-    button.addEventListener("click", function(){
-      button.style.opacity="50%";
-      if(button.innerHTML == word[j])
-      {
-        console.log(button.innerHTML+" "+ j);
-        guessArray[j]=button.innerHTML;
-        console.log(guessArray);
-        lettersToGuessUL.innerHTML = "";
-        for (let index = 0; index < guessArray.length; index++) {
-          const letter = guessArray[index];
-          lettersToGuessUL.append(letter);
-        }
-      }
-     
-  })
+    button.addEventListener("click", btnClick)
+    function btnClick(){
+      let livesh1 = document.querySelector("#game-overr-or-live-numburs");
+      
+      if(numberOfLives >1){
+        
+        
 
-}
-}
+        
+        
+      button.style.opacity="50%";
+      if(word.includes(button.innerText))
+      {
+       let arrOfIndices = [];
+       function indices(){
+         for(let i=0;i<word.length;i++){
+          if (word[i] === button.innerText) arrOfIndices.push(i);
+
+         }
+       }
+       indices();
+       console.log(arrOfIndices);
+       for(let i=0;i<=arrOfIndices.length;i++){
+        guessArray[arrOfIndices[i]]=button.innerText;
+       
+        
+        
+
+        console.log(guessArray);
+        
+        let li = document.querySelectorAll("#letters-to-guess li")[arrOfIndices[i]];
+        li.innerText = guessArray[arrOfIndices[i]];
+       }
+       button.disabled = true;
+    numsToWin++;
+       
+      }
+      else 
+      {
+        
+         let hangMann =document.querySelectorAll(".hangman-figure")[counter];
+         hangMann.style.display = "block";
+         counter++;
+        numberOfLives--;
+        
+        livesh1.innerHTML = `you have ${numberOfLives} lives`;
+        button.disabled = true;
+      }
+        
+      
+    }
+    else{
+      livesh1.innerHTML = `your have no lives`;
+    console.log("Game over");  
+    }
+  
+  }//eventlistner
+
+    
+})//for 26
 }
 fetchRndomWords();
 

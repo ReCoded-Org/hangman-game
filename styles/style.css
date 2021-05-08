@@ -6,7 +6,7 @@
     color: white;
 }
 #letters
-{
+{ 
     width: 850px;
     text-align: left;
     margin: auto;
@@ -76,3 +76,6 @@ color: white;
 display:inline; 
 color: white;
 } 
+.hangman-figure {
+    display: none;
+}
