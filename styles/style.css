@@ -76,3 +76,8 @@ color: white;
 display:inline; 
 color: white;
 } 
+
+.hangman-figure
+{
+    display: none;
+}
