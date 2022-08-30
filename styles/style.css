@@ -1,11 +1,11 @@
 body{
     text-align: center;
-    background-image: url(/unnamed.jpg);
+    background-image: url(/hangman.jpg);
     background-size: cover;
+    color:white;
 }
 
 h1{
     font-family: 'Mystery Quest';
     font-size: 75px;
-    color:#A891DF;
 }
