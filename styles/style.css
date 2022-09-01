@@ -2,13 +2,14 @@ body {
     text-align: center;
     background-size: cover;
     background-color: #FDF6E4;
+    font-family: 'Poppins';
 }
 h1 {
     font-family: 'Mystery Quest';
     font-size: 75px;
     color: #001858;
 }
-.button {
+#letters button {
     background-color: #001858;
     margin: 5px;
     border: none;
@@ -19,7 +20,7 @@ h1 {
     font-size: 25px;
     cursor: pointer;
 }
-.button:hover {
+#letters button:hover {
     background-color: #FDF6E4;
     color: #001858;
     border: 2px solid #001858;
@@ -29,4 +30,21 @@ h4,
 .show {
     color: #ff0062;
     font-size: 25px;
+}
+
+
+#play {
+    background-color: #001858;
+    margin: 5px;
+    border: none;
+    color: #FDF6E4;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#secret-word{
+    font-family: 'Poppins';
 }

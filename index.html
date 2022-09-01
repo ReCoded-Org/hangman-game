@@ -8,15 +8,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
   <h1>HANGMAN</h1>
-  <h4>Use Alphabet below to try and guess the word or click hint to get a clue.</h4>
-  <section>
-
-  </section>
   <div>
-    
+      <button id ="play" onclick="getRandomWord()">Play</button>
+  </div>
+  <div id="secret-word">
+      &nbsp;
+  </div>
+  <div id="letters">
+      &nbsp;
+  </div>
+  <div>
+      <canvas></canvas>
+  </div>
+
+  <div id="result">
+      &nbsp;
   </div>
   <script src="./scripts/script.js"></script>
 </body>
