@@ -3,12 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Hangman Game</title>
   <link rel="stylesheet" href="./styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
-  
+  <h1>HANGMAN</h1>
+  <div>
+      <button id ="play" onclick="getRandomWord()">Play</button>
+  </div>
+  <div id="secret-word">
+      &nbsp;
+  </div>
+  <div id="letters">
+      &nbsp;
+  </div>
+  <div>
+      <canvas></canvas>
+  </div>
 
+  <div id="result">
+      &nbsp;
+  </div>
   <script src="./scripts/script.js"></script>
 </body>
 </html>
